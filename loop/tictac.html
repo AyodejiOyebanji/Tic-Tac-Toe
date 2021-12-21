@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap-5.1.1-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/loop/tictac.css">
+    <title>Document</title>
+</head>
+
+
+<body style="overflow: hidden;">
+    <section id="all">
+
+
+
+        <!-- <header class="d-flex justify-content-center">
+        <h1 class="text-light">Tic Tac Tao</h1>
+    </header>
+         -->
+        <div class="mainBox">
+            <div class="neonText">
+                <h1 class="textColo">Tic Tac Teo </h1>
+
+            </div>
+
+        </div>
+
+        <!-- input and starts button starts here -->
+        <section class="d-flex justify-content-center py-3">
+            <input type="text" name="" id="inp1" placeholder="Player-1">
+            <input type="text" name="" id="inp2" placeholder="Player-2">
+
+            <span> <button id="start" onclick="myStart()">Start</button></span>
+
+
+        </section>
+
+        <!-- input and starts button ends here -->
+        <!-- winner div -->
+        <div id="winnerr" class="d-flex justify-content-center py-3">
+
+        </div>
+
+
+        <!-- div fill your name -->
+        <div id="deep" class="d-flex justify-content-center py-3">
+
+        </div>
+        <!-- div fill your name  end-->
+
+        <!-- result div starts here -->
+        <div id="result">
+        </div>
+        <!-- result div ends here -->
+
+        <!-- turn div starts here -->
+        <div id="turn" style="margin-top: -20px;" class="d-flex justify-content-center py-3 ">
+
+        </div>
+
+        <!-- turn div ends here -->
+
+        <section class="d-flex justify-content-center py-3" id="btnn">
+
+
+            <table style="margin-top: -40px;">
+                <tr>
+                    <td> <button id="A1" onclick="myFunc(event)" class="but" style="height: 70px;width: 70px;"
+                            disabled></button></td>
+                    <td><button id="B2" onclick="myFunc(event)" class="but" style="height: 70px;width: 70px;"
+                            disabled></button></td>
+                    <td><button id="C3" onclick="myFunc(event)" class="but" style="height: 70px;width: 70px;"
+                            disabled></button></td>
+                </tr>
+                <tr>
+                    <td> <button id="D1" onclick="myFunc(event)" class="but" style="height: 70px;width: 70px;"
+                            disabled></button></td>
+                    <td> <button id="E2" onclick="myFunc(event)" class="but" style="height: 70px;width: 70px;"
+                            disabled></button></td>
+                    <td> <button id="F3" onclick="myFunc(event)" class="but" style="height: 70px;width: 70px;"
+                            disabled></button></td>
+                </tr>
+                <tr>
+                    <td> <button id="G1" onclick="myFunc(event)" class="but" style="height: 70px;width: 70px;"
+                            disabled></button></td>
+                    <td> <button id="H2" onclick="myFunc(event)" class="but" style="height: 70px;width: 70px;"
+                            disabled></button></td>
+                    <td> <button id="I3" onclick="myFunc(event)" class="but" style="height: 70px;width: 70px;"
+                            disabled></button></td>
+                </tr>
+            </table>
+
+        </section>
+
+        <!-- score show starts here -->
+        <section class="container d-flex justify-content-center " style="margin-left: 112px;">
+
+            <span id="player1" style="color: white;transform: translateY(39px);margin-left: -199px; font-weight: 700;">
+
+            </span>
+            <span id="score">
+
+                <span id="score1" style="color: white;font-size: 30px;">
+                    0
+                </span>
+                <span style="font-size: 30px;color: white;">-</span>
+                <span id="score2" style="color: white;font-size: 30px;">
+                    0
+                </span>
+
+                <span id="player2" style="color: white; font-weight: 700;">
+
+                </span>
+            </span>
+
+
+
+
+        </section>
+
+        <!-- score show ends here -->
+        <section class=" container d-flex justify-content-center">
+            <a href="#">
+                <span>
+                    <button id="restart" onclick="restart()">Restart</button>
+                </span>
+            </a>
+
+        </section>
+
+    </section>
+
+
+
+    <script>
+        var music = new Audio('AUD-20211125-WA0099.mp3');
+        music.loop = true;
+
+        var a = document.getElementById('A1').innerText;
+        var a = document.getElementById('B2').innerText;
+        var a = document.getElementById('C3').innerText;
+        var a = document.getElementById('D1').innerText;
+        var a = document.getElementById('E2').innerText;
+        var a = document.getElementById('F3').innerText;
+        var a = document.getElementById('G1').innerText;
+        var a = document.getElementById('H2').innerText;
+        var a = document.getElementById('I3').innerText;
+
+        var n = 1;
+
+        function myFunc(e) {
+
+            if (e.target.innerText != "") return;
+            if (n == 1) {
+                e.target.innerText = 'X';
+                turn.innerHTML = player2.innerText + "  turn"
+                n = 0;
+            } else {
+                e.target.innerText = 'O';
+                turn.innerHTML = player1.innerText + "  turn"
+                n = 1;
+            } //winning ways start  X
+            if ((A1.innerHTML == "X") && (B2.innerHTML == "X") && (C3.innerHTML == "X") || (D1.innerHTML == "X") && (E2.innerHTML == "X") && (F3.innerHTML == "X") || (G1.innerHTML == "X") && (H2.innerHTML == "X") && (I3.innerHTML == "X") || (A1.innerHTML == "X") && (E2.innerHTML == "X") && (I3.innerHTML == "X") || (C3.innerHTML == "X") && (E2.innerHTML == "X") && (G1.innerHTML == "X") || (A1.innerHTML == "X") && (D1.innerHTML == "X") && (G1.innerHTML == "X") || (B2.innerHTML == "X") && (E2.innerHTML == "X") && (H2.innerHTML == "X") || (C3.innerHTML == "X") && (F3.innerHTML == "X") && (I3.innerHTML == "X")) {
+                winnerr.innerText = player1.innerText + " {X} wins the game"
+                ++score1.innerHTML;
+
+
+                document.getElementById("A1").disabled = true;
+                document.getElementById("B2").disabled = true;
+                document.getElementById("C3").disabled = true;
+                document.getElementById("D1").disabled = true;
+                document.getElementById("E2").disabled = true;
+                document.getElementById("F3").disabled = true;
+                document.getElementById("G1").disabled = true;
+                document.getElementById("H2").disabled = true;
+                document.getElementById("I3").disabled = true;
+                //winng ways ends X
+
+                //winning ways for O
+
+            } else if ((A1.innerHTML == "O") && (B2.innerHTML == "O") && (C3.innerHTML == "O") || (D1.innerHTML == "O") && (E2.innerHTML == "O") && (F3.innerHTML == "O") || (G1.innerHTML == "O") && (H2.innerHTML == "O") && (I3.innerHTML == "O") || (A1.innerHTML == "O") && (E2.innerHTML == "O") && (I3.innerHTML == "O") || (C3.innerHTML == "O") && (E2.innerHTML == "O") && (G1.innerHTML == "O") || (A1.innerHTML == "O") && (B1.innerHTML == "O") && (G1.innerHTML == "O") || (B2.innerHTML == "O") && (E2.innerHTML == "O") && (H2.innerHTML == "O") || (C3.innerHTML == "O") && (F3.innerHTML == "O") && (I3.innerHTML == "O")) {
+                winnerr.innerText = player2.innerText + "{O} wins the game"
+                ++score2.innerHTML;
+
+                document.getElementById("A1").disabled = true;
+                document.getElementById("B2").disabled = true;
+                document.getElementById("C3").disabled = true;
+                document.getElementById("D1").disabled = true;
+                document.getElementById("E2").disabled = true;
+                document.getElementById("F3").disabled = true;
+                document.getElementById("G1").disabled = true;
+                document.getElementById("H2").disabled = true;
+                document.getElementById("I3").disabled = true;
+                // winning ways for O ends
+                //draw starts here
+            } else if (((A1.innerHTML == "X") || (A1.innerHTML == "O")) && ((B2.innerHTML == "X") || (B2.innerHTML == "O")) && ((C3.innerHTML == "X") || (C3.innerHTML == "O")) && ((D1.innerHTML == "X") || (D1.innerHTML == "O")) && ((E2.innerHTML == "X") || (E2.innerHTML == "O")) && ((F3.innerHTML == "X") || (F3.innerHTML == "O")) && ((G1.innerHTML == "X") || (G1.innerHTML == "O")) && ((H2.innerHTML == "X") || (H2.innerHTML == "O")) && ((I3.innerHTML = "X") || (I3.innerHTML = "O"))) {
+                winnerr.innerText = "Draw"
+
+                document.getElementById("A1").disabled = true;
+                document.getElementById("B2").disabled = true;
+                document.getElementById("C3").disabled = true;
+                document.getElementById("D1").disabled = true;
+                document.getElementById("E2").disabled = true;
+                document.getElementById("F3").disabled = true;
+                document.getElementById("G1").disabled = true;
+                document.getElementById("H2").disabled = true;
+                document.getElementById("I3").disabled = true;
+
+            }
+
+
+        } //draw ends here
+
+
+        function myStart() {
+            music.play();
+            var van = inp1.value;
+            var lorry = inp2.value;
+            player1.innerText = van;
+            player2.innerText = lorry;
+            var p = 1;
+            if (start.innerText == "Start") {
+                start.innerText = "End";
+                p = 0;
+            } else {
+                start.innerText = "Start"
+                p = 1;
+                score1.innerHTML = 0;
+                score2.innerHTML = 0;
+                player1.innerText = "";
+                player2.innerText = "";
+
+                document.getElementById("A1").innerText = "";
+                document.getElementById("B2").innerText = "";
+                document.getElementById("C3").innerText = "";
+                document.getElementById("D1").innerText = "";
+                document.getElementById("E2").innerText = "";
+                document.getElementById("F3").innerText = "";
+                document.getElementById("G1").innerText = "";
+                document.getElementById("H2").innerText = "";
+                document.getElementById("I3").innerText = "";
+
+
+            }
+
+
+
+
+            if ((player1.innerText == "") && (player2.innerText == "") && (start.innerText == "End")) {
+                deep.innerHTML = ("Please fill up ur name");
+
+            } else {
+                document.getElementById("A1").disabled = false;
+                document.getElementById("B2").disabled = false;
+                document.getElementById("C3").disabled = false;
+                document.getElementById("D1").disabled = false;
+                document.getElementById("E2").disabled = false;
+                document.getElementById("F3").disabled = false;
+                document.getElementById("G1").disabled = false;
+                document.getElementById("H2").disabled = false;
+                document.getElementById("I3").disabled = false;
+            }
+            if (start.innerText === "Start") {
+
+                document.getElementById("A1").disabled = true;
+                document.getElementById("B2").disabled = true;
+                document.getElementById("C3").disabled = true;
+                document.getElementById("D1").disabled = true;
+                document.getElementById("E2").disabled = true;
+                document.getElementById("F3").disabled = true;
+                document.getElementById("G1").disabled = true;
+                document.getElementById("H2").disabled = true;
+                document.getElementById("I3").disabled = true;
+            }
+
+
+        }
+
+
+
+        function restart() {
+            music.play();
+            document.getElementById("A1").innerText = "";
+            document.getElementById("B2").innerText = "";
+            document.getElementById("C3").innerText = "";
+            document.getElementById("D1").innerText = "";
+            document.getElementById("E2").innerText = "";
+            document.getElementById("F3").innerText = "";
+            document.getElementById("G1").innerText = "";
+            document.getElementById("H2").innerText = "";
+            document.getElementById("I3").innerText = "";
+
+            document.getElementById("A1").disabled = false;
+            document.getElementById("B2").disabled = false;
+            document.getElementById("C3").disabled = false;
+            document.getElementById("D1").disabled = false;
+            document.getElementById("E2").disabled = false;
+            document.getElementById("F3").disabled = false;
+            document.getElementById("G1").disabled = false;
+            document.getElementById("H2").disabled = false;
+            document.getElementById("I3").disabled = false;
+
+        }
+
+
+
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
